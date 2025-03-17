@@ -14,7 +14,7 @@ export default function Home() {
     offset: ["start start", "end end"],
   })
 
-  const [isMobile, setIsMobile] = useState(false)
+  const [, setIsMobile] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
-      const sections = ["home", "projects","resume","about", "contact"];
+      // const sections = ["home", "projects","resume","about", "contact"];
 
       const homeSection = document.getElementById("home")
       const resumeSection = document.getElementById("resume")
@@ -61,7 +61,7 @@ export default function Home() {
   }, [window.scrollY])
 
   // Avatar animation values
-  const avatarScale = useTransform(scrollYProgress, [0, 0.7], [1, 3])
+  // const avatarScale = useTransform(scrollYProgress, [0, 0.7], [1, 3])
   const avatarOpacity = useTransform(scrollYProgress, [0, 0.1, 0.7, 0.8], [1, 0, 0, 1])
   const bottomAvatarOpacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1])
 
