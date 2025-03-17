@@ -61,7 +61,6 @@ export default function Home() {
   }, [window.scrollY])
 
   // Avatar animation values
-  // const avatarScale = useTransform(scrollYProgress, [0, 0.7], [1, 3])
   const avatarOpacity = useTransform(scrollYProgress, [0, 0.1, 0.7, 0.8], [1, 0, 0, 1])
   const bottomAvatarOpacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1])
 
@@ -229,11 +228,11 @@ export default function Home() {
       caption,
     };
   };
-  const healthcareShowcase = transformToShowcaseCardGrid(healthcare,"https://figma.com/file/example","Healthcare UI/UX Design");
-  const dashboardShowcase = transformToShowcaseCardGrid(dashboard,"","EdTech SEO Dashboard")
-  const bookShowcase = transformToShowcaseCardGrid(bookStream,"","BookStream");
-  const camperShowcase = transformToShowcaseCardGrid(camper,"","CamperQuest");
-  const spriteShowcase = transformToShowcaseCardGrid(Sprite,"","Sprite Concept App");
+  const healthcareShowcase = transformToShowcaseCardGrid(healthcare,"https://www.figma.com/design/COhAAH7VYbWN9ESPIH0AjB/HealthCare--Neha?node-id=0-1","Healthcare UI/UX Design");
+  const dashboardShowcase = transformToShowcaseCardGrid(dashboard,"https://www.figma.com/design/CrbXhRByTHvdxHJSHevinP/Dashboard--Neha","EdTech SEO Dashboard")
+  const bookShowcase = transformToShowcaseCardGrid(bookStream,"https://www.figma.com/design/KXZLv5XOQTaUHKvWqQVPDj/BookStream?node-id=51-1269","BookStream");
+  const camperShowcase = transformToShowcaseCardGrid(camper,"https://www.figma.com/design/sF7ovqM4uypoMrXbiwCxvp/showcase","CamperQuest");
+  const spriteShowcase = transformToShowcaseCardGrid(Sprite,"https://www.figma.com/design/UXTPCnf8lCXkhilzvz0Muz/sprite?node-id=11-272","Sprite Concept App");
   
   return (
     <div ref={containerRef} className="min-h-screen bg-white flex">
@@ -241,7 +240,7 @@ export default function Home() {
       <div className="flex-1 ">
         {/* Social Icons */}
         <div className="fixed top-8 left-8 z-50 flex items-center  justify-between gap-6">
-          <motion.div style={{ opacity: avatarOpacity }} className="relative">
+          <motion.div style={{ opacity: avatarOpacity}} className="relative">
             <img
               src="/nehu.png"
               alt="Avatar"
@@ -252,16 +251,16 @@ export default function Home() {
           </motion.div>
 
           <div className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-gray-700 hover:text-black">
+            <a href="https://dribbble.com/nehaspradeep" className="text-gray-700 hover:text-black">
               <DribbbleIcon className="h-6 w-6" />
             </a>
-            <a href="#" className="text-gray-700 hover:text-black">
+            <a href="https://www.behance.net/nehadatha" className="text-gray-700 hover:text-black">
               <BehanceIcon className="h-6 w-6" />
             </a>
-            <a href="#" className="text-gray-700 hover:text-black">
+            <a href="https://www.linkedin.com/in/neha-datha-pradeep/" className="text-gray-700 hover:text-black">
               <LinkedinIcon className="h-6 w-6" />
             </a>
-            <a href="#" className="text-gray-700 hover:text-black">
+            <a href="https://www.instagram.com/neha_s_pradeep/" className="text-gray-700 hover:text-black">
               <InstagramIcon className="h-6 w-6" />
             </a>
           </div>
@@ -308,10 +307,10 @@ export default function Home() {
                 <ShowcaseCard
                  images={[
                   "https://nehadathapradeep.vercel.app/school/Placements.png",
-                  "https://nehadathapradeep.vercel.app/school/Placements.png",
-                  "https://nehadathapradeep.vercel.app/school/Placements.png",
+                  "https://nehadathapradeep.vercel.app/school/3.png",
+                  "https://nehadathapradeep.vercel.app/school/Trainers.png",
                 ]}
-                figmaLink="https://figma.com/file/example"
+                figmaLink="https://www.figma.com/proto/BsCyzM5GYIZxJqnBfyMqYG/Finishing-School-neha?node-id=1-3&t=zGoYbEhg99VkxTdD-1"
                 caption="Edtech Webdesign"/>
                 <ShowcaseCardGrid {...healthcareShowcase}/>
                 <ShowcaseCardGrid {...dashboardShowcase}/>
@@ -373,18 +372,18 @@ export default function Home() {
                 </p>
 
                 <div className="flex gap-4 mt-4">
-                  <a href="#" className="text-gray-700 hover:text-black">
+                  <a href="https://www.behance.net/nehadatha" className="text-gray-700 hover:text-black">
                     <BehanceIcon className="h-5 w-5" />
                   </a>
-                  <a href="#" className="text-gray-700 hover:text-black">
+                  <a href="https://dribbble.com/nehaspradeep" className="text-gray-700 hover:text-black">
                     <Dribbble className="h-5 w-5" />
                   </a>
-                  <a href="#" className="text-gray-700 hover:text-black">
+                  <a href="https://www.instagram.com/neha_s_pradeep/" className="text-gray-700 hover:text-black">
                     <Instagram className="h-5 w-5" />
                   </a>
-                  <a href="#" className="text-gray-700 hover:text-black">
+                  {/* <a href="#" className="text-gray-700 hover:text-black">
                     <Github className="h-5 w-5" />
-                  </a>
+                  </a> */}
                 </div>
               </div>
 
@@ -400,7 +399,7 @@ export default function Home() {
             </div>
 
             <div className="mt-12 text-center text-sm text-gray-500">
-              2025 all rights reserved
+            © 2025. All rights reserved
             </div>
           </div>
         </footer>
