@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { BehanceIcon, DribbbleIcon, InstagramIcon, LinkedinIcon } from "@/components/social-icons"
-import { Dribbble, Github, Instagram } from "lucide-react"
+import { Dribbble, Instagram } from "lucide-react"
 import { cn } from "@/lib/utils"
 import ShowcaseCard from "../ui/showcase-card"
 import ShowcaseCardGrid from "../ui/showcase-card-grid"
