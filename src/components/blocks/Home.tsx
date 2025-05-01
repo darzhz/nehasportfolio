@@ -1,11 +1,19 @@
 import { useEffect, useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { BehanceIcon, DribbbleIcon, InstagramIcon, LinkedinIcon } from "@/components/social-icons"
-import { Dribbble, Github, Instagram } from "lucide-react"
+import { Dribbble, Instagram } from "lucide-react"
 import { cn } from "@/lib/utils"
-import ShowcaseCard from "../ui/showcase-card"
-import ShowcaseCardGrid from "../ui/showcase-card-grid"
+// import ShowcaseCard from "../ui/showcase-card"
+// import ShowcaseCardGrid from "../ui/showcase-card-grid"
 import ResumeSection from "./Resume"
+import { ExpandableCard } from "../ui/expandable-showcase"
+
+export interface ShowcaseGridItem {
+  images: string[]
+  figmaLink: string
+  caption: string
+  description?: string
+}
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -61,7 +69,7 @@ export default function Home() {
   }, [window.scrollY])
 
   // Avatar animation values
-  const avatarOpacity = useTransform(scrollYProgress, [0, 0.1, 0.7, 0.8], [1, 0, 0, 1])
+  // const avatarOpacity = useTransform(scrollYProgress, [0, 0.1, 0.7, 0.8], [1, 0, 0, 1])
   const bottomAvatarOpacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1])
 
   const navItems = [
@@ -220,8 +228,97 @@ export default function Home() {
       link: "#", // Replace with your link
     },
   ];
-
-  const transformToShowcaseCardGrid = (data:any[], figmaLink:string, caption:string) => {
+  const musicstore = [
+    {
+      image: "/musicstore/1.png",
+    },
+    {
+      image: "/musicstore/2.png",
+    },
+    {
+      image: "/musicstore/3.png",
+    },
+    {
+      image: "/musicstore/4.png",
+    },
+    {
+      image: "/musicstore/5.png",
+    },
+    {
+      image: "/musicstore/6.png",
+    }
+  ];
+  const travel = [
+    {
+      image: "/travel/1.png"
+    },
+    {
+      image: "/travel/2.png"
+    },
+    {
+      image: "/travel/3.png"
+    },
+    {
+      image: "/travel/4.png"
+    },
+    {
+      image: "/travel/5.png"
+    },
+    {
+      image: "/travel/6.png"
+    },{
+      image: "/travel/7.png"
+    }
+  ];
+  const food = [
+    {
+      image: "/food/1.png"
+    },
+    {
+      image: "/food/2.png"
+    },
+    {
+      image: "/food/3.png"
+    },
+    {
+      image: "/food/4.png"
+    }
+  ]
+  const home = [
+    {
+      image: "/home/1.png"
+    },
+    {
+      image: "/home/2.png"
+    },
+    {
+      image: "/home/3.png"
+    },
+    {
+      image: "/home/4.png"
+    }
+  ]
+  const fitness = [
+    {
+      image: "/fitness/1.png"
+    },
+    {
+      image: "/fitness/2.png"
+    },
+    {
+      image: "/fitness/3.png"
+    },
+    {
+      image: "/fitness/4.png"
+    }
+  ]
+  const school = [
+    { image:"/school/Placements.png"},
+    { image:"/school/3.png"},
+    { image:"/school/Trainers.png"},
+    { image:"/school/1.png"},
+  ];
+  const transformToShowcaseCardGrid = (data:any[], figmaLink:string, caption:string): ShowcaseGridItem => {
     return {
       images: data.map((item:any) => item.image),
       figmaLink,
@@ -233,6 +330,12 @@ export default function Home() {
   const bookShowcase = transformToShowcaseCardGrid(bookStream,"https://www.figma.com/design/KXZLv5XOQTaUHKvWqQVPDj/BookStream?node-id=51-1269","BookStream");
   const camperShowcase = transformToShowcaseCardGrid(camper,"https://www.figma.com/design/sF7ovqM4uypoMrXbiwCxvp/showcase","CamperQuest");
   const spriteShowcase = transformToShowcaseCardGrid(Sprite,"https://www.figma.com/design/UXTPCnf8lCXkhilzvz0Muz/sprite?node-id=11-272","Sprite Concept App");
+  const musicStore = transformToShowcaseCardGrid(musicstore,"https://www.figma.com/design/hXP1z0rSnrTRvdcVZTRM8s/Musical-instrument-neha?node-id=0-1&t=HFArBtHtGrcpp0uS-1","Music Store UI/UX Design");
+  const travelShowcase = transformToShowcaseCardGrid(travel,"https://www.figma.com/design/wWLS5w9wUzDMzsV8TMHrAb/Travel---Neha?node-id=261-2&t=FktPFiYkjIIx0CB9-1","Travel App UI/UX Design");
+  const foodShowcase = transformToShowcaseCardGrid(food,"https://www.figma.com/design/6QvetZLNPCD82NzQVDmNXX/food-delivery--neha--feb3-?node-id=1063-1632&t=NEewlOflBgDgMVWb-1","Food Delivery Dine In");
+  const homeAutomation = transformToShowcaseCardGrid(home,"https://www.figma.com/design/W2lTgskQZWmvawoSpSXyrG/Home-automation---Neha?node-id=1-2&t=G620ezGFSLt0h1Xh-1","Home Automation");
+  const fitnessApp = transformToShowcaseCardGrid(fitness,"https://www.figma.com/design/rs9imXww3WS7zZQAyUw3Da/Fitness-app--Neha?node-id=26-2&t=pKpru1FIs6Z9Vri9-1","Fitness App");
+  const techschool = transformToShowcaseCardGrid(school,"https://www.figma.com/proto/BsCyzM5GYIZxJqnBfyMqYG/Finishing-School-neha?node-id=1-3&t=zGoYbEhg99VkxTdD-1","Edtech Webdesign");
   
   return (
     <div ref={containerRef} className="min-h-screen bg-white flex">
@@ -240,7 +343,7 @@ export default function Home() {
       <div className="flex-1 ">
         {/* Social Icons */}
         <div className="fixed top-8 left-8 z-50 flex items-center  justify-between gap-6">
-          <motion.div style={{ opacity: avatarOpacity}} className="relative">
+          <motion.div className="relative">
             <img
               src="/nehu.png"
               alt="Avatar"
@@ -304,7 +407,7 @@ export default function Home() {
           <section id="projects" className="py-16 max-w-6xl">
             <div className="container mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <ShowcaseCard
+                {/* <ShowcaseCard
                  images={[
                   "https://nehadathapradeep.vercel.app/school/Placements.png",
                   "https://nehadathapradeep.vercel.app/school/3.png",
@@ -316,7 +419,19 @@ export default function Home() {
                 <ShowcaseCardGrid {...dashboardShowcase}/>
                 <ShowcaseCardGrid {...bookShowcase}/>
                 <ShowcaseCardGrid {...spriteShowcase}/>
-                <ShowcaseCardGrid {...camperShowcase}/>
+                <ShowcaseCardGrid {...camperShowcase}/> */}
+                <ExpandableCard showcaseItem={musicStore}/>
+                <ExpandableCard showcaseItem={travelShowcase}/>
+                <ExpandableCard showcaseItem={foodShowcase}/>
+                <ExpandableCard showcaseItem={homeAutomation}/>
+                <ExpandableCard showcaseItem={fitnessApp}/>
+                <ExpandableCard showcaseItem={healthcareShowcase}  />
+                <ExpandableCard showcaseItem={techschool}/>
+                <ExpandableCard showcaseItem={dashboardShowcase}/>
+                <ExpandableCard showcaseItem={bookShowcase}/>
+                <ExpandableCard showcaseItem={spriteShowcase}/>
+                <ExpandableCard showcaseItem={camperShowcase}/> 
+
               </div>
             </div>
           </section>
