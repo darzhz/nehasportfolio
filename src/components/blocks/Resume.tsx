@@ -38,14 +38,14 @@ export default function ResumeSection() {
       {
         degree: "Advanced Diploma In UI/UX Design",
         institution: "Aviv Digital",
-        year: "2024 - 2025",
-        description: "Currently pursuing advanced studies in UI/UX design principles and methodologies.",
+        year: "2024",
+        description: "Advanced studies in UI/UX design principles and methodologies.",
       },
       {
         degree: "Bachelor of Technology CSE",
         institution: "Mahaguru Institute of Technology",
         year: "2020 - 2024",
-        description: "CGPA - 6.56",
+        description: "CGPA - 6.7",
       },
       {
         degree: "Higher Secondary Education",
@@ -61,18 +61,19 @@ export default function ResumeSection() {
       },
     ]
   
-    const projectData = [
+    const latestProjectData = [
       {
-        position: "UI/UX for software training institute",
-        company: "Lead Designer, UX Researcher | Case Study",
+        position: "Xacara Events – Event & Service Hosting Platform",
+        company: "Product Designer | Full-Stack Collaboration",
+        link: "https://play.google.com/store/apps/details?id=space.cutify.zero0.twa",
         description:
-          "Designed an intuitive and modern UI/UX for a software training institute's website, focusing on enhancing user engagement, accessibility, and ease of navigation for students and parents.",
+          "Designed the end-to-end UI/UX for Xacara Events, an event and service hosting platform, focusing on clean information architecture, smooth onboarding flows, and scalable design systems. Collaborated closely with developers to ensure design feasibility and consistency across the product.",
       },
       {
-        position: "HealthCare App",
-        company: "Lead Designer | Mini Project",
+        position: "BioHippo – Bio-Research Support Platform",
+        company: "UI/UX Designer | Research-Driven Design",
         description:
-          "Designed a user-friendly healthcare app for seamless doctor search, appointment booking, and health record management emphasizing intuitive design, accessibility, and a calming aesthetic to ensure an efficient and stress-free user experience.",
+          "Designed a text-focused, research-friendly UI for BioHippo, a platform that outsources and promotes bio-research. Emphasized readability, structured content hierarchy, and subtle 3D elements to enhance engagement without distracting from scholarly content.",
       },
       {
         position: "EdTech SEO Dashboard Design",
@@ -81,20 +82,47 @@ export default function ResumeSection() {
           "Designed a comprehensive data visualization tool to track student engagement, course performance, instructor effectiveness, and revenue trends. Developed three key dashboards: Overview, Report & Analysis, and User Management, providing real-time data and interactive charts for actionable insights.",
       },
       {
+        position: "HealthCare App",
+        company: "Lead Designer | Mini Project",
+        description:
+          "Designed a user-friendly healthcare app for seamless doctor search, appointment booking, and health record management, emphasizing intuitive design, accessibility, and a calming aesthetic for an efficient and stress-free user experience.",
+      },
+      {
+        position: "UI/UX for Software Training Institute",
+        company: "Lead Designer, UX Researcher | Case Study",
+        description:
+          "Designed an intuitive and modern UI/UX for a software training institute's website, focusing on improving user engagement, accessibility, and ease of navigation for students and parents.",
+      },
+      {
+        position: "Flight Price Prediction System",
+        company: "Frontend Designer",
+        description:
+          "Designed an interface that presents data-driven forecasts and insights clearly, making complex historical ticket price data and future predictions accessible and user-friendly.",
+      },
+      {
         position: "Fingerprint Authentication Voting System",
         company: "Frontend Designer",
         description:
-          "Designed a user-friendly UI for a fingerprint voter authentication system, focusing on clear navigation and efficient interactions. Applied UX/UI principles to create a visually appealing and functional experience.",
+          "Designed a clear and efficient user interface for a fingerprint-based voter authentication system, applying UX/UI principles to ensure smooth navigation and reliable interactions.",
       },
-      {
-        position: "Flight price prediction system",
-        company: "Frontend Designer",
-        description:
-          "Designed interface seamlessly presents data-driven forecasts and insights, making complex information on historical ticket prices and future predictions accessible and user-friendly.",
-      },
-    ]
+    ];
+    const projectData = latestProjectData;
   
     const experienceData = [
+      {
+        position: "UI/UX Developer",
+        company: "Tresvance",
+        year: "2024 - Present",
+        description:
+          "Working as a full-time UI/UX Developer, designing intuitive user experiences, creating high-fidelity Figma designs, and collaborating closely with developers to ship polished, user-centric products.",
+      },
+      {
+        position: "UI/UX Intern",
+        company: "Aviv Digital",
+        year: "Internship",
+        description:
+          "Contributed to real-world projects by designing user interfaces, conducting user research, and collaborating with cross-functional teams to enhance product usability and aesthetics.",  
+      },
       {
         position: "Web Development Using React",
         company: "Atmios Technologies",
@@ -105,14 +133,15 @@ export default function ResumeSection() {
     ]
   
     const designSkills = [
+      "Product Design",
       "UX Research",
       "UI Design",
       "Agile Development",
       "Wireframing",
       "Prototyping",
       "Web Design",
-      "Graphics Design",
       "Illustration",
+      "Visual Identity"
     ]
   
     const softwareSkills = [
@@ -120,11 +149,18 @@ export default function ResumeSection() {
       { name: "Illustrator", proficiency: 85 },
       { name: "Indesign", proficiency: 80 },
       { name: "Photoshop", proficiency: 85 },
+      { name: "React", proficiency: 70 },
       { name: "HTML", proficiency: 75 },
       { name: "CSS", proficiency: 75 },
     ]
   
     const languages = ["English", "Hindi", "Malayalam"]
+
+    const triggerLink = (link:string|undefined) => {
+      console.log("link", link);
+      if (!link) return;
+      window.open(link, "_blank");
+    }
   
     return (
       <section className="py-20 " ref={sectionRef}>
@@ -208,7 +244,7 @@ export default function ResumeSection() {
                   {projectData.slice(0, 2).map((item, index) => (
                     <motion.div key={index} className="relative pl-8 border-l border-gray-200" variants={itemVariants}>
                       <div className="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-gray-400" />
-                      <h4 className="text-lg font-medium">{item.position}</h4>
+                      <h4 className="text-lg font-medium cursor-pointer" onClick={() => triggerLink(item?.link)}>{item.position}</h4>
                       <p className="text-gray-600 mb-2">{item.company}</p>
                       <p className="text-gray-700">{item.description}</p>
                     </motion.div>
